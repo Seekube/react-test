@@ -29,7 +29,6 @@ class App extends Component {
     event.preventDefault();
     const jediName = this.nameInput.value;
     this.addJedi(jediName);
-    // this.fetchJedi();
   }
 
   render() {
