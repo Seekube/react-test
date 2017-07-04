@@ -15,3 +15,15 @@ export function fetchJedi() {
       })
   }
 }
+
+export function addJedi(name) {
+  return (dispatch) => {
+    axios.post('http://localhost:3001/jedi', { name })
+      .then((res) => {
+        dispatch({
+          type: 'FETCH_FINISH',
+          payload: res.data,
+        });
+      })
+  }
+}

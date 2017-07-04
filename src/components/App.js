@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import './App.css';
 
-import { fetchJedi } from '../action';
+import { fetchJedi, addJedi } from '../action';
 
 function mapStateToProps(state) {
   return {
@@ -20,6 +20,16 @@ class App extends Component {
     this.props.dispatch(fetchJedi());
   }
 
+  addJedi(name) {
+    this.props.dispatch(addJedi(name));
+  }
+
+  newJedi(event) {
+    event.preventDefault();
+    const jediName = this.nameInput.value;
+    this.addJedi(jediName);
+  }
+
   render() {
     const { jedi } = this.props;
 
@@ -34,6 +44,13 @@ class App extends Component {
             Jedi: id: {jedi.id} name: {jedi.name}
           </div>
         ))}
+        <form 
+          ref={ (input) => {this.newJediForm = input} }
+          onSubmit={ (event) => this.newJedi(event) }
+        >
+          <input ref={ (input) => {this.nameInput = input} } />
+          <button type="submit">Add a jedi</button>
+        </form>
       </div>
     );
   }
