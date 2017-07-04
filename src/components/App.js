@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
 
-import { fetchJedi } from './action';
+import { fetchJedi, addJedi } from '../action';
 
 function mapStateToProps(state) {
   return {
@@ -12,12 +12,23 @@ function mapStateToProps(state) {
 }
 
 class App extends Component {
+
   componentWillMount() {
     this.fetchJedi();
   }
 
   fetchJedi() {
     this.props.dispatch(fetchJedi());
+  }
+
+  addJedi(name) {
+    this.props.dispatch(addJedi(name));
+  }
+
+  newJedi(event) {
+    event.preventDefault();
+    const jediName = this.nameInput.value;
+    this.addJedi(jediName);
   }
 
   render() {
@@ -34,6 +45,13 @@ class App extends Component {
             Jedi: id: {jedi.id} name: {jedi.name}
           </div>
         ))}
+        <form 
+          ref={ (input) => {this.newJediForm = input} }
+          onSubmit={ (event) => this.newJedi(event) }
+        >
+          <input ref={ (input) => {this.nameInput = input} } />
+          <button type="submit">Add a jedi</button>
+        </form>
       </div>
     );
   }
