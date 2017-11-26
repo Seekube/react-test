@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
 
-import { fetchJedi } from './action';
+import { fetchJedi } from '../actions/action';
 
 function mapStateToProps(state) {
   return {
