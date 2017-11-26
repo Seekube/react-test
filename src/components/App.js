@@ -9,6 +9,7 @@ import { fetchJedi } from '../actions/action';
 
 //Components
 import JediList from './JediList';
+import FormNewJedi from './FormNewJedi';
 
 function mapStateToProps(state) {
   return {
@@ -34,7 +35,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        
+        <FormNewJedi />
         <JediList jedi={jedi} />
       </div>
     );
