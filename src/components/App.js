@@ -17,6 +17,7 @@ function mapStateToProps(state) {
 }
 
 class App extends Component {
+
   componentWillMount() {
     this.fetchJedi();
   }
@@ -24,7 +25,6 @@ class App extends Component {
   fetchJedi() {
     this.props.dispatch(fetchJedi());
   }
-
   render() {
     const { jedi } = this.props;
 
@@ -34,6 +34,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
+        
         <JediList jedi={jedi} />
       </div>
     );
