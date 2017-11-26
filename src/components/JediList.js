@@ -1,7 +1,27 @@
+//Modules
 import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+//Components
 import JediItem from './JediItem';
+//Actions
+import { fetchJedi } from '../actions/action';
+
+function mapStateToProps(state) {
+    return {
+      jedi: state.jedi,
+    };
+}
 
 class JediList extends Component{
+    componentWillMount() {
+        this.fetchJedi();
+    }
+    
+    fetchJedi() {
+        this.props.dispatch(fetchJedi());
+    }
+
+    
     render (){
         const {jedi} = this.props;
         return(
@@ -20,4 +40,6 @@ JediList.PropTypes = {
     jedi :PropTypes.array,
 }
 
-export default JediList;
+export default connect(
+    mapStateToProps,
+)(JediList);

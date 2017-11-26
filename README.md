@@ -59,4 +59,5 @@ Step 3 :
 
 Review Redux architecture and add function for adding a new jedi.
 
-
+- Add addnewJedi into action.js
+- Add a form

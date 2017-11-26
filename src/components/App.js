@@ -1,34 +1,15 @@
 //Modules
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './App.css';
-
-//Actions
-import { fetchJedi } from '../actions/action';
 
 //Components
 import JediList from './JediList';
 import FormNewJedi from './FormNewJedi';
 
-function mapStateToProps(state) {
-  return {
-    jedi: state.jedi,
-  };
-}
-
 class App extends Component {
 
-  componentWillMount() {
-    this.fetchJedi();
-  }
-
-  fetchJedi() {
-    this.props.dispatch(fetchJedi());
-  }
   render() {
-    const { jedi } = this.props;
-
     return (
       <div className="App">
         <div className="App-header">
@@ -36,16 +17,10 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <FormNewJedi />
-        <JediList jedi={jedi} />
+        <JediList />
       </div>
     );
   }
 }
 
-App.propTypes = {
-  jedi: PropTypes.array,
-};
-
-export default connect(
-  mapStateToProps,
-)(App);
+export default App;
