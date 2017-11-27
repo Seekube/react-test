@@ -9,6 +9,7 @@ class FormNewJedi extends Component{
     }
 
     newJedi(e){
+        //e.preventDefault();
         if(this.nameInput.value !== ""){
            this.props.dispatch(addnewJedi(this.nameInput.value));
            this.nameInput.value = "";

@@ -20,7 +20,6 @@ class JediList extends Component{
     fetchJedi() {
         this.props.dispatch(fetchJedi());
     }
-
     
     render (){
         const {jedi} = this.props;

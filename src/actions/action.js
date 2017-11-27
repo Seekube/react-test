@@ -18,7 +18,9 @@ export function fetchJedi() {
 
 export function addnewJedi(name){
   return (dispatch) =>{
-    axios.post('http://localhost:3001/jedi', {name})
+    axios.post('http://localhost:3001/jedi', {
+      name : name
+    })
       .then((res) =>{
         dispatch({
           type : 'ADD_FINISH',
