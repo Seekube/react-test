@@ -36,3 +36,28 @@ npm run compile
 
 ## How to?
 Fork this project and create a pull request on this repository from your fork.
+
+---
+
+Step 1 : 
+
+Clean up src and separate into different folders.
+
+- Components
+- Actions 
+- Reducers
+
+Step 2 : 
+
+Split the component App into differents components
+
+- One for the list of Jedis
+- One for the detail of one Jedi.
+- One to register a new jedi.
+
+Step 3 : 
+
+Review Redux architecture and add function for adding a new jedi.
+
+- Add addnewJedi into action.js
+- Add a form
