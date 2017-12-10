@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
+import { registerJedi } from './action'
+
 import { fetchJedi } from './action';
 
 function mapStateToProps(state) {
@@ -22,6 +24,7 @@ class App extends Component {
 
   render() {
     const { jedi } = this.props;
+    let input;
 
     return (
       <div className="App">
@@ -29,6 +32,24 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
+        <form onSubmit={ e => {
+            e.preventDefault();
+            if (!input.value.trim())
+            {
+              return;
+            }
+            this.props.dispatch(registerJedi(input.value, jedi.length + 1))
+            input.value = '';
+          }
+        }>
+          <input ref={ node => {
+              input = node;
+            }
+          }/>
+          <button type='submit'>
+            Add a Jedi
+          </button>
+        </form>
         {jedi.map((jedi, index) => (
           <div key={index}>
             Jedi: id: {jedi.id} name: {jedi.name}
