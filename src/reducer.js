@@ -11,6 +11,11 @@ function jediReducer(state = [], action) {
         ...action.payload,
         ...state,
       ];
+    case 'REGISTER_JEDI' :
+      return [
+      // ...action.payload,
+      ...state, { id : action.data.id, name: action.data.name, }
+    ];
     default:
       return state;
   }

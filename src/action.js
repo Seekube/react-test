@@ -15,3 +15,19 @@ export function fetchJedi() {
       })
   }
 }
+
+export function registerJedi(name, id){
+  return (dispatch) => {
+    axios.post('http://localhost:3001/jedi', {id : id, name : name})
+      .then((res) => {
+        console.log(res);
+        dispatch({
+          type : 'REGISTER_JEDI',
+          data : res.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+}
