@@ -6,7 +6,8 @@ import { addJedi } from '../actions'
 class AddJedi extends Component {
   state = { newJedi : null }
 
-  addJedi = () => {
+  addJedi = (e) => {
+    e.preventDefault()
     let jedi = {name: this.state.newJedi}
     this.props.dispatch(addJedi(jedi))
     this.refs.addJedi.value=""
@@ -19,8 +20,10 @@ class AddJedi extends Component {
   render() {
     return (
         <div>
+          <form onSubmit={this.addJedi}>
             <input type='text' ref='addJedi' onChange={this.handleChange} placeholder='name of new jedi' />
-            <button onClick={this.addJedi} disabled={!this.state.newJedi}>Add Jedi</button>
+            <button disabled={!this.state.newJedi}>Add Jedi</button>
+          </form>
         </div>
     )
   }
