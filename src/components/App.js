@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import AddJedi from './AddJedi'
 import ListJedi from './ListJedi'
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
         </div>
         <div className='App-row'>
           <ListJedi/>
+          <AddJedi/>
         </div>
       </div>
     );

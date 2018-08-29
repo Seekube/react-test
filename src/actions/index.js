@@ -11,3 +11,15 @@ export const fetchJedi = () => {
       })
   }
 }
+
+export const addJedi = (jedi) => {
+  return (dispatch) => {
+    axios.post('http://localhost:3001/jedi', jedi)
+      .then((res) => {
+        dispatch({
+          type: 'ADD_FINISH',
+          payload: res.data
+        })
+      })
+  }
+}

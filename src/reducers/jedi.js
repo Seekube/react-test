@@ -5,6 +5,14 @@ const jedi = (state = [], action) => {
         ...action.payload,
         ...state
       ]
+    case 'ADD_FINISH':
+      return [
+        ...state,
+        {
+          id: action.payload.id,
+          name: action.payload.name
+        }
+      ]
     default:
       return state
   }

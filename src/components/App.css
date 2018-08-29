@@ -18,6 +18,18 @@
   font-size: large;
 }
 
+.App-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-row > *{
+  width: 50%;
+  text-align: center;
+  padding: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
