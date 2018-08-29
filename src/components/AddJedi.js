@@ -9,7 +9,7 @@ class AddJedi extends Component {
   addJedi = () => {
     let jedi = {name: this.state.newJedi}
     this.props.dispatch(addJedi(jedi))
-    
+    this.refs.addJedi.value=""
   }
 
   handleChange = (event) => {
@@ -19,7 +19,7 @@ class AddJedi extends Component {
   render() {
     return (
         <div>
-            <input type='text' id='addJedi' onChange={this.handleChange} placeholder='name of new jedi' />
+            <input type='text' ref='addJedi' onChange={this.handleChange} placeholder='name of new jedi' />
             <button onClick={this.addJedi} disabled={!this.state.newJedi}>Add Jedi</button>
         </div>
     )
