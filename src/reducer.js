@@ -8,8 +8,13 @@ function jediReducer(state = [], action) {
   switch (action.type) {
     case 'FETCH_FINISH':
       return [
-        ...action.payload,
         ...state,
+        ...action.payload,
+      ];
+    case 'ADD_JEDI_SUCCESS':
+      return [
+          ...state,
+          action.payload,
       ];
     default:
       return state;
