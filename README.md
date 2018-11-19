@@ -36,3 +36,25 @@ npm run compile
 
 ## How to?
 Fork this project and create a pull request on this repository from your fork.
+
+
+## Work summary
+
+### Clean up
+I seperated actions, reducers and components and images in different folders.
+
+
+**In the reducers folder**: The reducer.js file connects all the different reducers. For now there is only jedi.js because it's the only item in the state. But if we also wanted a list of Sith, there would be a new item in the state and a new reducer called `sith.js`
+
+**In the actions folder**: for now there is only one file, but as the project grows it will be easier to maintain if actions are seperated in different files. We could seperate them according to state as well for example.
+
+**In the component folder**: each component is in its own folder. I used the container component pattern where each components owns a container component and a view component. The container should be the only one to be aware of Redux and the only one to describe the logic behind the component. The view only describes what the component looks like and if possible only have a render function in this class.
+
+According to this pattern, I put the jedi list in a different component from which the container dispatches the fetch action and the view maps the list.
+
+### Adding a new Jedi
+I created a new component called `JediForm`.
+It's composed of a text input and a send button. When clicked, if the input is not empty, the button dispatches an action, called `ADD_FINISH`. This action sends a POST request to the api with the name of the new jedi. The reducer then updates the state to add the new Jedi's name and id at the end of the list.
+
+
+
